@@ -1,0 +1,51 @@
+/* Composite editing styles */
+
+div.slot_header {
+  /* This is an IE6 hack.  The presence of a floating element in a
+  slot changes the layout algorithm somehow so that empty block elements
+  in table cells can generate events like onmouseover.  Otherwise, IE
+  simply doesn't generate the events. */
+  float: right;
+}
+
+div.slot_target {
+  padding: 4px;
+  border: 1px outset #cccccc;
+  background-color: #cccccc;
+  background-image: url("%(parent_url)s/target_image");
+  background-repeat: repeat;
+}
+
+div.slot_target:hover {
+  background-image: url("%(parent_url)s/target_image_hover");
+}
+
+div.slot_target_highlighted {
+  padding: 4px;
+  border: 1px outset #7777cc;
+  background-color: #7777cc;
+  background-image: url("%(parent_url)s/target_image_active");
+  background-repeat: repeat;
+}
+
+div.slot_element_body {
+  padding-left: 20px;
+}
+
+img.slot-element-grip {
+  margin: 0px 2px 2px 0px;
+  border: 1px outset #cccccc;
+  background-color: #cccccc;
+  float: left;
+  display: none;
+}
+
+div.slot_element_highlighted img.slot-element-grip {
+  border: 1px outset #777777;
+  background-color: #777777;
+}
+
+div.slot_element_highlighted { 
+  color: HighlightText;
+  background-color: Highlight;
+}

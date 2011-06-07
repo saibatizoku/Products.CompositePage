@@ -1,0 +1,5 @@
+<!-- cmf/header.pt -->
+<tal:block tal:define="url options/ui/absolute_url">
+<script type="text/javascript" 
+  tal:attributes="src string:${url}/cmf_edit_js"></script>
+</tal:block>

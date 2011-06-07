@@ -1,0 +1,40 @@
+1.0 (2011-04-30)
+----------------
+
+- Fixed test failures caused by 7 years of changes to Zope and Python.
+  This mostly involved simple modernization:
+
+    - Use zope.interface, zope.tales, and zope.pagetemplate rather than
+      their predecessors.
+
+    - Use absolute imports.
+
+    - Use Unicode where possible.
+
+- Let's stop swallowing errors that occur when rendering the template
+  to get the list of slots.  Error messages are friendlier than silent
+  breakage.
+
+- Slots now show the add element interface only at the top and bottom
+  of the slot, not between elements.  (Hmm, should this be configurable?)
+
+
+0.2 (2004-06-16)
+----------------
+
+- Changed the UI to use images for elements and targets.
+
+- Added inline views.  You can now select templates to render objects.
+
+- Context menus now have headers.
+
+- The clipboard now works.
+
+- You can now define slots in a template using "slot:" expressions.
+  This should make it easier to write templates.
+
+- The composite tool now checks copy/paste permissions before making
+  any changes.
+
+- Slots now have a __str__ method, making it easy to render them
+  directly.

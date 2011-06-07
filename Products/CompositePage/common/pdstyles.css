@@ -1,0 +1,48 @@
+/* Manageable Object Styles (CSS 2) */
+
+div#drag-feedback-box {
+  border: 1px dotted black;
+  position: absolute;
+  display: none;
+  z-index: 1000;
+}
+
+div.context-menu {
+  position: absolute;
+  border: 1px outset;
+  background-color: #ddd;
+  color: black;
+  z-index: 1000;
+  visibility: hidden;
+  display: table;
+}
+
+div.context-menu-item, div.context-menu-item_highlighted {
+  cursor: default;
+  padding: 1px 10px 1px 10px;
+  border: 1px solid #ddd;
+}
+
+div.context-menu-item_highlighted {
+  color: HighlightText;
+  background-color: Highlight;
+}
+
+div.context-menu div.separator {
+  border-top: 1px inset #ccc;
+  border-bottom: 1px inset #ccc;
+}
+
+div.context-menu-header {
+  background-color: #999;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 2px 4px 0px 4px;
+  cursor: default;
+}
+
+div.context-menu-header img {
+  margin-right: 6px;
+}

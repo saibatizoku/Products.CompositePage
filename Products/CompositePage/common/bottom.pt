@@ -1,0 +1,28 @@
+<!-- common/bottom.pt -->
+<div id="drag-feedback-box"></div>
+<img id="slot-element-grip" class="slot-element-grip"
+   width="16" height="16" tal:define="url
+   string:${options/ui/absolute_url}/element_image"
+   tal:attributes="src url" />
+
+<form action="moveAndDelete" name="modify_composites" method="POST"
+  tal:attributes="action
+  string:${options/tool/absolute_url}/moveAndDelete">
+<input type="hidden" name="move_source_paths" value="" />
+<input type="hidden" name="move_target_path" value="" />
+<input type="hidden" name="move_target_index" value="" />
+<input type="hidden" name="delete_source_paths" value="" />
+</form>
+
+<form action="useClipboard" name="useClipboard" method="POST"
+  tal:attributes="action
+  string:${options/tool/absolute_url}/useClipboard">
+<input type="hidden" name="func" value="" />
+<input type="hidden" name="source_paths" value="" />
+<input type="hidden" name="target_path" value="" />
+<input type="hidden" name="target_index" value="" />
+</form>
+
+<script type="text/javascript"><!--
+pd_setupPage();
+// --></script>

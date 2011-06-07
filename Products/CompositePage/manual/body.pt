@@ -1,0 +1,132 @@
+<div>
+
+<em tal:condition="not: options/manifest">
+No slots are defined.
+</em>
+
+<form name="manual_composite_ui">
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tbody tal:repeat="slot_info options/manifest">
+<tr>
+<td class="slot_top">
+<span target_index="0" tal:attributes="target_path slot_info/target_path"
+  tal:define="ui_url options/ui/absolute_url">
+  <a href="#" onclick="manual_add(this.parentNode); return false;"
+     ><img tal:attributes="src string:${ui_url}/add_icon" align="center"
+     onmouseover="rollover(this);" onmouseout="rollout(this);"
+     alt="Add" title="Add" /></a><a
+   href="#" onclick="manual_delete(); return false;"
+     ><img tal:attributes="src string:${ui_url}/remove_icon" align="center"
+     onmouseover="rollover(this);" onmouseout="rollout(this);"
+     alt="Remove" title="Remove" /></a><a
+   href="#" onclick="manual_copy(); return false;"
+     ><img tal:attributes="src string:${ui_url}/copy_icon" align="center"
+     onmouseover="rollover(this);" onmouseout="rollout(this);"
+     alt="Copy" title="Copy" /></a><a
+   href="#" onclick="manual_cut(); return false;"
+     ><img tal:attributes="src string:${ui_url}/cut_icon" align="center"
+     onmouseover="rollover(this);" onmouseout="rollout(this);"
+     alt="Cut" title="Cut" /></a><tal:block
+  tal:condition="request/__cp|nothing"><a
+   href="#" onclick="manual_paste(this.parentNode); return false;"
+     ><img tal:attributes="src string:${ui_url}/paste_icon" align="center"
+     onmouseover="rollover(this);" onmouseout="rollout(this);"
+     alt="Paste" title="Paste" /></a>
+  </tal:block>
+</span>
+&nbsp;
+<span tal:content="slot_info/title">Headliner story</span>
+- Slot <span tal:content="repeat/slot_info/number">1</span>
+</td>
+</tr>
+
+<tr tal:repeat="element_info slot_info/elements">
+<td class="slot_element" tal:attributes="source_path element_info/source_path">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td colspan="3" class="slot_target"
+  tal:attributes="target_path slot_info/target_path;
+  target_index element_info/index"></td>
+</tr>
+<tr>
+<td valign="top" width="1%">
+  <input type="checkbox" name="source_paths:list"
+     tal:attributes="value element_info/source_path;
+     source_path element_info/source_path" />
+</td>
+<td width="60%">
+<div>
+  <img tal:condition="element_info/icon"
+     tal:attributes="src element_info/icon"
+     width="16" height="16" border="0" />
+  <b tal:content="element_info/title">Reducing Post-Bypass Readmissions</b>
+  <span class="element_error" tal:condition="element_info/error"
+     tal:content="structure element_info/error">Bad Element</span>
+</div>
+<div>
+<span tal:attributes="source_path element_info/source_path">
+  <a href="#" onclick="manual_edit(this); return false;">edit</a> |
+  <a href="#" onclick="manual_preview(this); return false;">preview</a>
+  <span tal:condition="element_info/can_move_up"> |
+  <a href="#" onclick="manual_move(this); return false;"
+    tal:attributes="target_path slot_info/target_path;
+      target_index python: element_info['index'] - 1">move up</a>
+  </span>
+  <span tal:condition="element_info/can_move_down"> |
+  <a href="#" onclick="manual_move(this); return false;"
+    tal:attributes="target_path slot_info/target_path;
+      target_index python: element_info['index'] + 2">move down</a>
+  </span>
+</span>
+</div>
+</td>
+<td valign="top" align="right">
+View:
+<select tal:attributes="source_path element_info/source_path"
+   name="template" onchange="manual_changeTemplate(this);">
+<option value="" selected="selected" 
+        tal:condition="not: element_info/template"
+        disabled="disabled">Select a view...</option>
+<option tal:repeat="template_info element_info/available_templates"
+  tal:content="template_info/title" tal:attributes="value template_info/id;
+  selected python: template_info['id'] == element_info['template']"
+  >Standard</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="slot_target"
+  tal:attributes="target_path slot_info/target_path;
+  target_index element_info/next_index"></td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr tal:condition="not: slot_info/elements">
+<td class="slot_empty">
+<div class="slot_target"
+  tal:attributes="target_path slot_info/target_path;
+  target_index string:0"></div>
+<em>Empty space</em>
+<div class="slot_target"
+  tal:attributes="target_path slot_info/target_path;
+  target_index string:0"></div>
+</td>
+</tr>
+
+<tr>
+<td class="slot_bottom">
+&nbsp;
+</td>
+</tr>
+
+<tr class="slot_spacer">
+<td height="10"></td>
+</tr>
+
+</tbody>
+</table>
+</form>
+
+</div>

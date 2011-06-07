@@ -1,0 +1,16 @@
+<!-- manual/header.pt -->
+<tal:block tal:define="url options/ui/absolute_url">
+<link rel="stylesheet" type="text/css"
+  tal:attributes="href string:${url}/pdstyles_css" />
+<link rel="stylesheet" type="text/css"
+  tal:attributes="href string:${url}/manual_styles_css" />
+<script type="text/javascript" 
+  tal:attributes="src string:${url}/pdlib_js"></script>
+<script type="text/javascript" 
+  tal:attributes="src string:${url}/edit_js"></script>
+<script type="text/javascript" 
+  tal:attributes="src string:${url}/manual_js"></script>
+<script type="text/javascript" tal:content="structure string:
+var ui_url = '${url}';
+"></script>
+</tal:block>

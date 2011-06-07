@@ -1,0 +1,2 @@
+"""CompositePage tests.
+"""

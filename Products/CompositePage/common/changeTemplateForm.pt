@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Change Template</title>
+</head>
+<body>
+
+<div tal:define="info python: here.getTemplateChangeInfo(request['paths'])">
+<form action="changeTemplate" method="POST">
+<input type="hidden" name="paths" tal:attributes="value request/paths" />
+
+<div><strong>Change template for:</strong></div>
+<div style="margin-left: 1em;" tal:repeat="ob info/obs">
+  <img tal:define="icon ob/getIcon|ob/icon|nothing" tal:condition="icon"
+     tal:attributes="src icon" width="16" height="16" />
+  <span tal:replace="ob/title_and_id" />
+</div>
+
+<div tal:condition="info/templates">
+<div><strong>To:</strong></div>
+<div tal:repeat="template info/templates/keys">
+ <input type="radio" name="template" tal:attributes="
+   value template; id template; checked python: template == info['current_template']" />
+ <label tal:attributes="for template" tal:content="template" />
+</div>
+</div>
+
+<div tal:condition="not:info/templates">
+<em tal:condition="python: len(info['obs']) == 1">
+No inline templates are available for this object.
+</em>
+<em tal:condition="python: len(info['obs']) > 1">
+No inline templates are available for all selected objects.
+Try selecting only one item at a time.
+</em>
+</div>
+
+<input tal:condition="info/templates" type="submit" name="submit"
+  value="Save Changes" />
+<button onclick="window.close()">Cancel</button>
+
+</form>
+</div>
+
+</body>
+</html>

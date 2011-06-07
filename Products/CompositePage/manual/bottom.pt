@@ -1,0 +1,8 @@
+<!-- manual/bottom.pt -->
+
+<form action="changeTemplate" name="changeTemplate" method="POST"
+  tal:attributes="action string:${options/ui/absolute_url}/changeTemplate">
+<input type="hidden" name="reload" value="y" />
+<input type="hidden" name="paths" value="" />
+<input type="hidden" name="template" value="" />
+</form>

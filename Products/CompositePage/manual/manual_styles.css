@@ -1,0 +1,64 @@
+
+.slot_top {
+  background-color: #003366;
+  color: white;
+  font-weight: bold;
+  padding: 2px 0.5em 2px 0.5em;
+}
+
+.slot_top img {
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.slot_element, .slot_empty {
+  background-color: #cccccc;
+}
+
+.slot_element_highlighted {
+  background-color: #b5d5ff;
+}
+
+.slot_element, .slot_element_highlighted, .slot_empty {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.slot_element input, .slot_element_highlighted input {
+  margin-right: 0.5em;
+}
+
+.slot_element a, .slot_element_highlighted a {
+  font-size: small;
+}
+
+.slot_bottom {
+  background-color: #336699;
+  padding: 2px 0.5em 2px 0.5em;
+  color: white;
+}
+
+.slot_bottom a {
+  color: white;
+}
+
+.slot-element-grip {
+  display: none;
+}
+
+.slot_target, .slot_target_highlighted {
+  height: 4px;
+}
+
+.slot_target_highlighted {
+  background-color: black;
+}
+
+.element_error {
+  color: #f00;
+}

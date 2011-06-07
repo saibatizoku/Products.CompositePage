@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title tal:content="template/title">The title</title>
+  </head>
+  <body>
+
+<table border="4" width="100%">
+<tr>
+<th colspan="3">
+<h2>
+CompositePage Example Template
+</h2>
+</th>
+</tr>
+<tr>
+
+<td width="25%" valign="top">
+<div tal:replace="structure slot: left 'Left column'">
+Left column elements here
+</div>
+</td>
+
+<td width="50%" valign="top">
+<div tal:replace="structure slot: middle 'Middle column'">
+Middle column elements here
+</div>
+</td>
+
+<td width="50%" valign="top">
+
+<table border="1" width="100%">
+<tr>
+<td tal:content="structure slot: small_ad 'Small ad'">
+Small ad here
+</td>
+</tr>
+</table>
+
+<div tal:replace="structure slot: right 'Right column'">
+Right column here
+</div>
+</td>
+
+</tr>
+
+</table>
+
+<br />
+
+<div align="center">
+<div tal:replace="structure slot: notices 'Attribution and legal notices'">
+Attribution and legal notices
+</div>
+
+</div>
+
+  </body>
+</html>

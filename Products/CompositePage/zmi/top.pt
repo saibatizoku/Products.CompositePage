@@ -1,0 +1,3 @@
+<!-- zmi/top.pt -->
+<div tal:replace="structure options/composite/manage_tabs"></div>
+<br />
